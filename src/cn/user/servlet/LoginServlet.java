@@ -16,6 +16,9 @@ public class LoginServlet extends HttpServlet {
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+        //用来测试github远程仓库是否更新此条信息！！！
+
         request.setCharacterEncoding("UTF-8");
         //获取参数列表
         Map<String,String[]> map = request.getParameterMap();
@@ -39,7 +42,7 @@ public class LoginServlet extends HttpServlet {
             //完成记住用户名的功能
             //获取复选框的内容
             String remember = request.getParameter("remember");
-            if(remember != null && "remember".equals(remember)){
+            if("remember".equals(remember)){
                 //将用户信息记录到cookie中
                 Cookie rem_cookie = LoginService.rememberUser(successUser);
                 //回写cookie
